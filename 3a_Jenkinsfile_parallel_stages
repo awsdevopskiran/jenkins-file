@@ -1,0 +1,37 @@
+pipeline {
+   agent any
+   stages {
+       stage('Initial Stage') {
+           steps {
+               println("Initial Stage Steps")
+           }
+       }
+       stage('parallel stage execution') {
+           parallel {
+               stage('Stage-1') {
+                   steps {
+                       sleep(20 * Math.random())
+                       println("Inside Stage-1")
+                   }
+               }
+               stage('Stage-2') {
+                   steps {
+                       sleep(20 * Math.random())
+                       println("Inside Stage-2")
+                   }
+               }
+               stage('Stage-3') {
+                   steps {
+                       sleep(20 * Math.random())
+                       println("Inside Stage-3")
+                   }
+               }
+           }
+       }
+       stage('Final Stage') {
+           steps {
+               println("Final Stage.")
+           }
+       }
+   }
+}
