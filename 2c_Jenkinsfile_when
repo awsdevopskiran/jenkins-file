@@ -4,7 +4,7 @@ The when directive allows the Pipeline to determine whether the stage should be 
 pipeline {
     agent any
     environment {
-        SDLC_ENV = 'qa'
+        SDLC_ENV = 'dev'
     }
     stages {
         stage('Example Build') {
