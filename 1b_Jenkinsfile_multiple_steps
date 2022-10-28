@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "This is First Jenkins Pipeline"'
+                sh 'echo "This is 1st Jenkins Pipeline"'
                 sh '''
                     echo "This is step script"
                     ls -ltr
