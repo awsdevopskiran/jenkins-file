@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Example Deploy') {
             when {
-                environment name: 'SDLC_ENV', value: 'dev'
+                environment name: 'SDLC_ENV', value: 'prod'
             }
             steps {
                 echo 'Deploying Code'
