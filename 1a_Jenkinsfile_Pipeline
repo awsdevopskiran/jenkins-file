@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'This is Test 2nd Stage.'
+                echo 'This is Test 4th Stage.'
             }
         }
         stage('Deploy') {
