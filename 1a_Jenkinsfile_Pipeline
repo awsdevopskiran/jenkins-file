@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'this is '$ENV' enviremnt file'
+                
                 echo 'This is Build 0th Stage .'
                 echo 'This is Build 1st stage.'
             }
