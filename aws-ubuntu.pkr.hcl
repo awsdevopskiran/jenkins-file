@@ -14,10 +14,14 @@ variable "ami-stage" {
 }
 variable "aws_access_key" {
   description = "AWS Access Key"
+  type    = string
+  default = ["AKIA5DTDJLBR6BRLPENI"]
 }
 
 variable "aws_secret_key" {
   description = "AWS Secret Key"
+  type    = string
+  default = ["uBJ0WSf/mFTMIgqKOeJrpDMdKeScoWpyhnasyFow"]
 }
 
 
