@@ -12,17 +12,17 @@ variable "ami-stage" {
   type    = string
   default = "dev"
 }
-variable "aws_access_key" {
-  description = "AWS Access Key"
-  type    = string
-  default = ["AKIA5DTDJLBR6BRLPENI"]
-}
+# variable "aws_access_key" {
+#   description = "AWS Access Key"
+#   type    = string
+#   default = ["AKIA5DTDJLBR6BRLPENI"]
+# }
 
-variable "aws_secret_key" {
-  description = "AWS Secret Key"
-  type    = string
-  default = ["uBJ0WSf/mFTMIgqKOeJrpDMdKeScoWpyhnasyFow"]
-}
+# variable "aws_secret_key" {
+#   description = "AWS Secret Key"
+#   type    = string
+#   default = ["uBJ0WSf/mFTMIgqKOeJrpDMdKeScoWpyhnasyFow"]
+# }
 
 
 locals {
@@ -31,6 +31,8 @@ locals {
 
 source "amazon-ebs" "ubuntu" {
   
+#   access_key    = "AKIA5DTDJLBR6BRLPENI"
+#   secret_key    = "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"
   access_key    = var.aws_access_key
   secret_key    = var.aws_secret_key
   ami_name        = local.ami-name
