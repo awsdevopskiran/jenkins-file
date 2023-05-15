@@ -12,6 +12,14 @@ variable "ami-stage" {
   type    = string
   default = "dev"
 }
+variable "aws_access_key" {
+  description = "AWS Access Key"
+}
+
+variable "aws_secret_key" {
+  description = "AWS Secret Key"
+}
+
 
 locals {
   ami-name = "${var.ami-stage}-kyc-ocr-base-${uuidv4()}"
