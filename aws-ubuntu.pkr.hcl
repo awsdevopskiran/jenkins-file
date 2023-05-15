@@ -26,11 +26,13 @@ locals {
 }
 
 source "amazon-ebs" "ubuntu" {
-
+  
+  access_key    = var.aws_access_key
+  secret_key    = var.aws_secret_key
   ami_name        = local.ami-name
   ami_description = "Instance Image as per: ${timestamp()}.This ami is created using packer."
   region          = "us-east-1"
-  instance_type   = "g4dn.xlarge"
+  instance_type   = "t2.micro"
   source_ami      = "ami-007855ac798b5175e"
   ami_users       = ["901077620835"]
   #most_recent	  = true
