@@ -5,7 +5,7 @@ variable "REGION" {
 
 variable "INSTANCE_TYPE" {
     type = string
-    default = "g4dn.xlarge"
+    default = "t2.nano"
 }
 
 variable "AMI_STAGE" {
@@ -15,20 +15,20 @@ variable "AMI_STAGE" {
 
 variable "BASE_IMAGES" {
   type    = string
-  default = "ami-01800bfa2b1507eaf"
+  default = "ami-0f5ee92e2d63afc18"
 }
 
 variable "SUBNET_ID" {
   type    = string
-  default = "subnet-0efa788d43d86acd7"
+  default = "subnet-03eadfa4fe0602155"
 }
 
 variable "VPC_ID" {
   type    = string
-  default = "vpc-05f8a37cc781b7691"
+  default = "vpc-0a1f065c6bb328ebf"
 }
 
 variable "VALUME_SIZE" {
   type    = number
-  default = 100
+  default = 50
 }
