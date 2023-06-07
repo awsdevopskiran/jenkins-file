@@ -20,7 +20,7 @@ variable "BASE_IMAGES" {
 
 variable "SUBNET_ID" {
   type    = string
-  default = "subnet-03eadfa4fe0602155"
+  default = "subnet-011a31fa5daa35bb6"
 }
 
 variable "VPC_ID" {
