@@ -26,10 +26,10 @@ source "amazon-ebs" "ubuntu1" {
   ami_description = "Instance Image as per: ${timestamp()}.this ami is created using packer"
   region = "ap-south-1"
   instance_type = "t2.nano"
-  source_ami = "ami-0f5ee92e2d63afc18"
-  ami_users = ["448949733093"]
-  vpc_id = "vpc-06c9bc75794148fa7"
-  subnet_id = "subnet-089d92a5260781896"
+  source_ami = "ami-0fa00cc8f1b1a5c90"
+  ami_users = ["709754666466"]
+  vpc_id = "vpc-0a1f065c6bb328ebf"
+  subnet_id = "subnet-0515daf167c9c7c7e"
   ssh_pty = false
   tags = {
     Stage = "${var.ami-stage}"
@@ -56,13 +56,12 @@ build {
     ]
 
   provisioner "shell" {
-    # inline = ["echo Connected via SSM at '${build.User}@${build.Host}:${build.Port}'"]
-    script = "./scripts/awscli-setup.sh"
+      inline = [
+        "docker pull 709754666466.dkr.ecr.ap-south-1.amazonaws.com/kyc-ocr/in/card_detect:dev"
+      ]
+    
     
   }
 
-  provisioner "shell" {
-    script = "./scripts/docker-setup.sh"
-  }
 
 }

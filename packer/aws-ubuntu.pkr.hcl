@@ -8,7 +8,7 @@ packer {
 }
 
 locals {
-  ami_name = "${var.AMI_STAGE}-kyc-ocr-base-AMI"
+  ami_name = "${var.AMI_STAGE}-kyc-ocr-main-AMI"
 }
 
 
@@ -19,7 +19,7 @@ source "amazon-ebs" "packer-image" {
   region          = "${var.REGION}"
   instance_type   = "${var.INSTANCE_TYPE}"
   source_ami      = "${var.BASE_IMAGES}"
-  ami_users       = ["611334599981"]
+  ami_users       = ["709754666466"]
   #most_recent	  = true
   #owners	  = [""]
   vpc_id    = "${var.VPC_ID}"
@@ -48,7 +48,7 @@ build {
   sources = [
     "source.amazon-ebs.packer-image"
   ]
-
+  /*
   provisioner "shell" {
     script = "./scripts/awscli-setup.sh"
   }
@@ -59,6 +59,7 @@ build {
   provisioner "shell" {
     script = "./scripts/disable-ubuntu-update.sh"
   }
+  */
  
 
 

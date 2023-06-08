@@ -15,7 +15,7 @@ variable "AMI_STAGE" {
 
 variable "BASE_IMAGES" {
   type    = string
-  default = "ami-0f5ee92e2d63afc18"
+  default = "ami-0fa00cc8f1b1a5c90"
 }
 
 variable "SUBNET_ID" {
