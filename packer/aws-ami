@@ -19,8 +19,8 @@ locals {
 
 source "amazon-ebs" "ubuntu1" {
 
-  access_key = "AKIAWRB35I3SX26K47U5"
-  secret_key = "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"
+  access_key = ""
+  secret_key = ""
 
   ami_name = local.ami_name
   ami_description = "Instance Image as per: ${timestamp()}.this ami is created using packer"
