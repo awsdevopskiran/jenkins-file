@@ -20,8 +20,8 @@ build {
   builders = [
     {
       type           = "amazon-ebs"
-      access_key     = "AKIAWRB35I3SX26K47U5"
-      secret_key     = "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"
+      access_key     = ""
+      secret_key     = ""
       region         = "${var.REGION}"
       source_ami     = "${var.BASE_IMAGES}"
       instance_type  = "${var.INSTANCE_TYPE}"
