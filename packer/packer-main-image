@@ -1,0 +1,68 @@
+packer {
+  required_plugins {
+    amazon = {
+      version = ">= 1.2.5"
+      source  = "github.com/hashicorp/amazon"
+    }
+  }
+}
+
+variable "ami-stage" {
+    type = string
+    default = "rest"
+}
+
+locals {
+    ami_name = "${var.ami-stage}-kyc-ocr-main-AMI"
+}
+
+
+source "amazon-ebs" "ubuntu1" {
+
+  access_key ="AKIA2KQFMXXRDKXOL73H"
+  secret_key = "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"
+
+  ami_name = local.ami_name
+  ami_description = "Instance Image as per: ${timestamp()}.this ami is created using packer"
+  region = "ap-south-1"
+  instance_type = "t2.nano"
+  source_ami = "ami-0d8ace1a838cf6e9e"
+  ami_users = ["709754666466"]
+  vpc_id = "vpc-0a1f065c6bb328ebf"
+  subnet_id = "subnet-0515daf167c9c7c7e"
+  ssh_pty = false
+  tags = {
+    Stage = "${var.ami-stage}"
+    Name = local.ami_name
+  }
+
+  launch_block_device_mappings {
+    device_name = "/dev/sda1"
+    volume_size = 50
+    volume_type = "gp3"
+    delete_on_termination = true
+    throughput = 1000
+    iops = 5000
+    encrypted = false
+  }
+
+  communicator = "ssh"
+  ssh_username = "ubuntu"
+}
+
+build {
+  sources = [
+    "source.amazon-ebs.ubuntu1" 
+    ]
+
+  provisioner "shell" {
+      inline = [
+        "aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 709754666466.dkr.ecr.ap-south-1.amazonaws.com",
+        "docker pull 709754666466.dkr.ecr.ap-south-1.amazonaws.com/kyc-ocr/in/card_detect:dev"
+      ]
+    
+    
+  }
+
+
+}
