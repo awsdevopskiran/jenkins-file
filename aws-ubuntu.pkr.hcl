@@ -38,8 +38,8 @@ locals {
 
 source "amazon-ebs" "ubuntu" {
   
-#   access_key    = "AKIA5DTDJLBR6BRLPENI"
-#   secret_key    = "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"
+#   access_key    = ""
+#   secret_key    = ""
   access_key    = var.aws_access_key
   secret_key    = var.aws_secret_key
   ami_name        = local.ami-name
