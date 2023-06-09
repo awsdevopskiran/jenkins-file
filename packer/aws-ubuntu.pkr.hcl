@@ -8,7 +8,7 @@ packer {
 }
 
 locals {
-  ami_name = "${var.AMI_STAGE}-kyc-ocr-main-AMI"
+  ami_name = "${var.AMI_STAGE}-kyc-ocr-base-AMI"
 }
 
 
@@ -48,7 +48,7 @@ build {
   sources = [
     "source.amazon-ebs.packer-image"
   ]
-  /*
+  
   provisioner "shell" {
     script = "./scripts/awscli-setup.sh"
   }
@@ -59,7 +59,7 @@ build {
   provisioner "shell" {
     script = "./scripts/disable-ubuntu-update.sh"
   }
-  */
+  
  
 
 
