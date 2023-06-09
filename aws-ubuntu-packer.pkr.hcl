@@ -27,8 +27,8 @@ source "amazon-ebs" "basic-example" {
   #     # external_id  = "EXTERNAL_ID"
   # }
 
-  # access_key = "AKIAWRB35I3S2ULVRLCV"
-  # secret_key = "3O8NRz1+MTvACrrwWNlW/FdtM+9jWKRMuxyhBwXK"
+  # access_key = ""
+  # secret_key = ""
 
   ami_name = local.ami_name
   ami_description = "Instance Image as per: ${timestamp()}.this ami is created using packer"
