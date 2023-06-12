@@ -14,6 +14,12 @@ locals {
 
 source "amazon-ebs" "packer-image" {
   
+  assume_role {
+       role_arn     = "arn:aws:iam::ACCOUNT_ID:role/ROLE_NAME"
+       session_name = "SESSION_NAME"
+       external_id  = "EXTERNAL_ID"
+  }
+  
   ami_name        = local.ami_name
   ami_description = "Instance Image as per: ${timestamp()}.This ami is created using packer."
   region          = "${var.REGION}"
