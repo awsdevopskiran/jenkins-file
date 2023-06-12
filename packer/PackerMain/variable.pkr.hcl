@@ -10,7 +10,7 @@ variable "INSTANCE_TYPE" {
 
 variable "AMI_STAGE" {
   type    = string
-  default = "dev"
+  default = "main"
 }
 
 variable "BASE_IMAGES" {
