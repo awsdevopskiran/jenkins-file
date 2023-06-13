@@ -58,7 +58,7 @@ build {
   provisioner "shell" {
 
     inline = [
-      "aws sts assume-role --role-arn arn:aws:iam::709754666466:role/ecrRole --role-session-name Packer > assume-role-output.json"
+      "aws sts assume-role --role-arn arn:aws:iam::709754666466:role/Aws-IAM --role-session-name Packer > assume-role-output.json"
     ]
   }
 
