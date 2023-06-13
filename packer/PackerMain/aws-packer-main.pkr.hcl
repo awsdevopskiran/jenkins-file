@@ -57,7 +57,14 @@ build {
 
   provisioner "shell" {
 
-    inline = ["aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 709754666466.dkr.ecr.ap-south-1.amazonaws.com"]
+    inline = [
+      "aws sts assume-role --role-arn "arn:aws:iam::account-id:role/role-name" --role-session-name "Packer" > assume-role-output.json",
+      "aws configure set aws_access_key_id $(jq -r '.Credentials.AccessKeyId' assume-role-output.json)"
+      "aws configure set aws_secret_access_key $(jq -r '.Credentials.SecretAccessKey' assume-role-output.json)"
+      "aws configure set aws_session_token $(jq -r '.Credentials.SessionToken' assume-role-output.json)"
+
+    
+    ]
   }
 
   
