@@ -15,7 +15,7 @@ locals {
 source "amazon-ebs" "packer-image" {
   
   assume_role {
-       role_arn     = "arn:aws:iam::709754666466:role/aws-assume"
+       role_arn     = "arn:aws:iam::709754666466:role/Aws-IAM"
        /*
        session_name = "SESSION_NAME"
        external_id  = "EXTERNAL_ID"
@@ -60,7 +60,7 @@ build {
   provisioner "shell" {
 
     inline = [
-      "aws sts assume-role --role-arn arn:aws:iam::709754666466:role/Aws-IAM --role-session-name Packer > assume-role-output.json"
+      "aws sts assume-role --role-arn arn:aws:iam::709754666466:role/aws-assume --role-session-name Packer > assume-role-output.json"
     ]
   }
 
