@@ -15,9 +15,11 @@ locals {
 source "amazon-ebs" "packer-image" {
   
   assume_role {
-       role_arn     = "arn:aws:iam::709754666466:role/ecrRole"
+       role_arn     = "arn:aws:iam::709754666466:role/aws-assume"
+       /*
        session_name = "SESSION_NAME"
        external_id  = "EXTERNAL_ID"
+       */
   }
   
   ami_name        = local.ami_name
