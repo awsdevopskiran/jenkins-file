@@ -1,4 +1,4 @@
-/*
+
 packer {
   required_plugins {
     amazon = {
@@ -13,15 +13,21 @@ locals {
     ami_name = "${var.AMI_STAGE}-kyc-ocr-base-AMI"
 }
 
-data "amazon-ami" "basic-example" {
+data "amazon-ami" "example" {
     filters = {
         virtualization-type = "hvm"
-        name = "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*"
+        name = "ubuntu/images/*ubuntu-xenial-22.04-amd64-server-*"
         root-device-type = "ebs"
     }
-    owners = ["amazon"]
+    owners = ["709754666466"]
     most_recent = true
 }
+
+locals {
+  source_ami_id = data.amazon-ami.example.id
+  source_ami_name = data.amazon-ami.example.name
+ }
+
 
 source "amazon-ebs" "ubuntu_base_image" {
 
@@ -29,7 +35,7 @@ source "amazon-ebs" "ubuntu_base_image" {
     # secret_key = ""
 
     region          = "${var.REGION}"
-    source_ami = data.amazon-ami.basic-example.id
+    source_ami = local.source_ami_id
     ami_name        = local.ami_name
     ami_description = "Instance Image as per: ${timestamp()}.This ami is created using packer."
     instance_type   = "${var.INSTANCE_TYPE}" 
@@ -78,21 +84,6 @@ build {
     post-processor "manifest" {}
 
 }
-*/
-data "aws_ami" "ubuntu" {
-  most_recent = true
-  owners      = ["099720109477"]  # Canonical owner ID
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
-  }
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-}
 
-output "ami_id" {
-  value = data.aws_ami.ubuntu.id
-}
+
 
