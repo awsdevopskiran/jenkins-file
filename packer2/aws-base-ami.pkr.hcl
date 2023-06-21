@@ -16,12 +16,13 @@ locals {
 data "amazon-ami" "example" {
     filters = {
         virtualization-type = "hvm"
-        name = "ubuntu/images/*ubuntu-xenial-22.04-amd64-server-*"
+        name = "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*"
         root-device-type = "ebs"
     }
     owners = ["709754666466"]
     most_recent = true
 }
+
 
 locals {
   source_ami_id = data.amazon-ami.example.id
