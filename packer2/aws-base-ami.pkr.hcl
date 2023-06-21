@@ -24,8 +24,8 @@ data "amazon-ami" "basic-example" {
 
 source "amazon-ebs" "ubuntu_base_image" {
 
-    access_key = ""
-    secret_key = ""
+    # access_key = ""
+    # secret_key = ""
 
     region          = "${var.REGION}"
     source_ami = data.amazon-ami.basic-example.id
