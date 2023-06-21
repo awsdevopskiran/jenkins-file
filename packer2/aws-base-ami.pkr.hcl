@@ -1,3 +1,4 @@
+/*
 packer {
   required_plugins {
     amazon = {
@@ -77,3 +78,4 @@ build {
     post-processor "manifest" {}
 
 }
+*/
