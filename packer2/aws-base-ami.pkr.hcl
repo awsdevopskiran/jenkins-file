@@ -58,7 +58,7 @@ source "amazon-ebs" "ubuntu_base_image" {
 build {
 
     sources = ["source.amazon-ebs.ubuntu_base_image"]
-
+    /*
     provisioner "shell" {
         script = "./scripts/awscli-setup.sh"
     }
@@ -70,6 +70,7 @@ build {
     provisioner "shell" {
         script = "./scripts/disable-ubuntu-update.sh"
     }
+    */
  
 
 
