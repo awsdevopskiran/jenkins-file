@@ -14,7 +14,7 @@ variable "AMI_ID" {
 variable "Instance_Type" {
     type = string
     description = "kyc-ocr vm Instance type"
-    default = "t2.micro"
+    default = "g4dn.xlarge"
 }
 
 variable "subnet_id" {
