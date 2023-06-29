@@ -1,7 +1,7 @@
 resource "aws_security_group" "kyc_ocr_sec_group" {
     name = "kyc/ocr/sec-group"
     description = "Security group allow this inbound rule"
-    vpc_id = var.VPC_id
+    vpc_id = "${var.VPC_id}"
 
     ingress {
         description = "TLS from VPC"
