@@ -2,8 +2,8 @@
 
 provider "aws" {
   region = "us-east-1"
-  access_key = "AKIA2KQFMXXRCNWPUVGH"
-  secret_key = "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"
+  access_key = ""
+  secret_key = ""
 }
 
 resource "aws_instance" "kyc-ocr-VM" {
